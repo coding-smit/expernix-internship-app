@@ -3,6 +3,12 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from .models import Application
 from .serializers import ApplicationSerializer
+#admin pannel 
+from django.contrib.auth import authenticate
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
+
 
 class ApplicationViewSet(ModelViewSet):
     queryset = Application.objects.all()
@@ -10,10 +16,6 @@ class ApplicationViewSet(ModelViewSet):
 
 
 #admin pannel 
-from django.contrib.auth import authenticate
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework_simplejwt.tokens import RefreshToken
 
 @api_view(['POST'])
 def admin_login(request):

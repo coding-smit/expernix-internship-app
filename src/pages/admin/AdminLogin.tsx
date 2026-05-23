@@ -35,7 +35,7 @@ const AdminLogin = () => {
     try {
 
       const response = await fetch(
-        "https://api.expernix.in/admin",
+        "https://api.expernix.in/api/admin-login/",
         {
           method: "POST",
           headers: {
