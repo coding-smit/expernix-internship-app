@@ -166,7 +166,11 @@ const AdminLogin = () => {
               </Button>
 
             </form>
-
+            <div className="mt-6 text-center"> 
+              <p className="text-sm text-muted-foreground"> 
+                Are you an intern?{" "} 
+                <Link to="/intern/login" className="text-primary hover:underline"> Login here </Link>
+                 </p> </div>
           </CardContent>
 
         </Card>

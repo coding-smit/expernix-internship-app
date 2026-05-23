@@ -32,7 +32,7 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" asChild>
-              {/* <Link to="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform?usp=header">Intern Login</Link> */}
+              <Link to="/intern/login">Intern Login</Link>
             </Button>
             <Button variant="hero" asChild>
               <Link to="/Apply">Apply Now</Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
               </a>
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <Button variant="ghost" asChild className="w-full">
-                  <Link to="/admin/login">Admin Login</Link>
+                  <Link to="/intern/login">Intern Login</Link>
                 </Button>
                 <Button variant="hero" asChild className="w-full">
                   <Link to="/Apply">Apply Now</Link>

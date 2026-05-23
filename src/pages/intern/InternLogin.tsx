@@ -14,18 +14,61 @@ const InternLogin = () => {
     email: "",
     password: "",
   });
+  const handleSubmit = async (e: React.FormEvent) => {
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Demo login - in production, this would be handled by authentication
-    if (formData.email && formData.password) {
+  e.preventDefault();
+
+  try {
+
+    const response = await fetch(
+      "https://api.expernix.in/api/intern-login/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
+
+      localStorage.setItem(
+        "intern",
+        JSON.stringify(data.intern)
+      );
+
       toast({
         title: "Login Successful",
         description: "Welcome to your dashboard!",
       });
+
       navigate("/intern/dashboard");
+
+    } else {
+
+      toast({
+        title: "Login Failed",
+        description: data.error,
+        variant: "destructive",
+      });
+
     }
-  };
+
+  } catch (error) {
+
+    toast({
+      title: "Server Error",
+      description: "Backend not responding",
+      variant: "destructive",
+    });
+
+  }
+};
+  
+ 
 
   return (
     <div className="min-h-screen gradient-hero flex items-center justify-center p-4">

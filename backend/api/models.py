@@ -38,3 +38,39 @@ class Application(models.Model):
 
     def __str__(self):
         return self.name
+
+    #interns schema
+
+class Intern(models.Model):
+
+    DURATION_CHOICES = [
+        ("30 Days", "30 Days"),
+        ("45 Days", "45 Days"),
+        
+    ]
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    password = models.CharField(max_length=100)
+
+    college_name = models.CharField(max_length=200)
+
+    course = models.CharField(max_length=100)
+
+    internship_field = models.CharField(max_length=100)
+
+    duration = models.CharField(
+        max_length=20,
+        choices=DURATION_CHOICES
+    )
+
+    start_date = models.DateField()
+
+    end_date = models.DateField()
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
